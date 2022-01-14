@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ProvaFinale_week7_LIONETTO
 {
-    public class GestioneAssicurazioni
+    public static class GestioneAssicurazioni
     {
         private static IRepositoryCliente repCliente = new RepositoryEFCliente();
         private static IRepositoryPolizza repPolizza = new RepositoryEFPolizza();
 
-        public void Menu()
+        public static void Menu()
         {
             bool exit = true;
 
@@ -55,7 +55,7 @@ namespace ProvaFinale_week7_LIONETTO
 
         }
 
-        private void StampaCollection<T>(ICollection<T> collection) where T : class
+        private static void StampaCollection<T>(ICollection<T> collection) where T : class
         {
             if (collection.Count == 0)
             {
@@ -68,7 +68,7 @@ namespace ProvaFinale_week7_LIONETTO
             }
         }
 
-        private void AddPolizza()
+        private static void AddPolizza()
         {
             Console.WriteLine("a quale cliente vuoi aggiungere una polizza ?");
             var clienti = repCliente.GetAll();
@@ -179,7 +179,7 @@ namespace ProvaFinale_week7_LIONETTO
             }
         }
 
-        private void AddCliente()
+        private static void AddCliente()
         {
             Console.WriteLine("inserisci codice fiscale");
             var codFisc = Console.ReadLine();
