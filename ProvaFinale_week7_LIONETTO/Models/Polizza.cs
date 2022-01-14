@@ -18,7 +18,7 @@ namespace ProvaFinale_week7_LIONETTO.Models
 
         public override string ToString()
         {
-            return $"{NumeroPolizza} {DataStipula.ToShortDateString()} {ImportoAssicurazione} {RataMensile} cliente: {Cliente}";
+            return $"NUMERO  POLIZZA:{NumeroPolizza} DATA STIPULA:{DataStipula.ToShortDateString()} IMPORTO TOTALE ASSICURAZIONE:{ImportoAssicurazione} IMPORTO RATA MENSILE:{RataMensile} cliente: {Cliente}";
         }
     }
 }

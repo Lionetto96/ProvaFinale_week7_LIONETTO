@@ -13,5 +13,10 @@ namespace ProvaFinale_week7_LIONETTO.Models
         public string Targa { get; set; }
         public int Cilindrata { get; set; }
 
+        public override string ToString()
+        {
+            return base.ToString() + $"targa:{Targa} cilindrata:{Cilindrata}";
+        }
+
     }
 }

@@ -28,7 +28,7 @@ namespace ProvaFinale_week7_LIONETTO.Models
 
         public override string ToString()
         {
-            return $"{CodiceFiscale} {Nome} {Cognome} {Indirizzo} {SpesaTotRate()}";
+            return $"CLIENTE:{CodiceFiscale} {Nome} {Cognome} {Indirizzo} SPESA TOT. MENSILE:{SpesaTotRate()}";
         }
     }
 }

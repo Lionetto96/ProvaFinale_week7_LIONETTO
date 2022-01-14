@@ -9,5 +9,9 @@ namespace ProvaFinale_week7_LIONETTO.Models
     public class Vita :Polizza
     {
         public int AnniAssicurato { get; set; }
+        public override string ToString()
+        {
+            return base.ToString() + $"  età:{AnniAssicurato}";
+        }
     }
 }
