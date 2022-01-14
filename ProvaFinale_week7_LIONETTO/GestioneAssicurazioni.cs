@@ -70,39 +70,41 @@ namespace ProvaFinale_week7_LIONETTO
 
         private static void AddPolizza()
         {
-            Console.WriteLine("a quale cliente vuoi aggiungere una polizza ?");
-            var clienti = repCliente.GetAll();
-            foreach (var item in clienti)
+
+            bool exit2 = true;
+            do
             {
-                Console.WriteLine(item);
-            }
-            var codiceFiscale = Console.ReadLine();
-            var clienteEsistente = repCliente.GetByCodiceFiscale(codiceFiscale);
-            if (clienteEsistente == null)
-            {
-                Console.WriteLine("cliente errato o inesistente");
-            }
-            else
-            {
-                bool exit2 = true;
-                do
+                Console.WriteLine("che tipo di polizza vuoi aggiungere?" +
+                     "\n [1] RcAuto" +
+                     "\n [2] Furto " +
+                     "\n [3] Vita" +
+                     "\n [4] esci");
+                char scelta = Console.ReadKey().KeyChar;
+                switch (scelta)
                 {
-                    Console.WriteLine("che tipo di polizza vuoi aggiungere?"+
-                         "\n [1] RcAuto" +
-                         "\n [2] Furto " +
-                         "\n [3] Vita"+
-                         "\n [4] esci");
-                    char scelta = Console.ReadKey().KeyChar;
-                    switch (scelta)
-                    {
-                        case '1':
+                    case '1':
+                        Console.WriteLine("a quale cliente vuoi aggiungere una polizza ?");
+                        var clienti = repCliente.GetAll();
+                        foreach (var item in clienti)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        var codiceFiscale = Console.ReadLine();
+                        var clienteEsistente = repCliente.GetByCodiceFiscale(codiceFiscale);
+                        if (clienteEsistente == null)
+                        {
+                            Console.WriteLine("cliente errato o inesistente");
+                        }
+                        else
+                        {
+
                             Console.WriteLine("inserisci data di stipula polizza ");
-                            var data=DateTime.Parse(Console.ReadLine());
+                            var data = DateTime.Parse(Console.ReadLine());
                             Console.WriteLine("inserisci importo totale assicurazione ");
                             var imp = float.Parse(Console.ReadLine());
                             Console.WriteLine("inserisci importo rata Mensile ");
                             var rata = float.Parse(Console.ReadLine());
-                            Console.WriteLine("inserisci targa auto ");
+                            Console.WriteLine("inserisci targa auto DI MAX 5 caratteri ");
                             var targa = Console.ReadLine();
                             Console.WriteLine("inserisci cilindrata ");
                             var cil = int.Parse(Console.ReadLine());
@@ -115,20 +117,37 @@ namespace ProvaFinale_week7_LIONETTO
                                 RataMensile = rata,
                                 Targa = targa,
                                 Cilindrata = cil,
+                                CodiceFiscale = codiceFiscale,
 
                             };
                             repPolizza.Create(polizzaAuto);
-                            
+                        }
 
-                            break;
-                        case '2':
+
+
+                        break;
+                    case '2':
+                        Console.WriteLine("inserisci codice fiscale del cliente a cui vuoi aggiungere una polizza ?");
+                        var clienti2 = repCliente.GetAll();
+                        foreach (var item in clienti2)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        var codiceFiscale2 = Console.ReadLine();
+                        var clienteEsistente2 = repCliente.GetByCodiceFiscale(codiceFiscale2);
+                        if (clienteEsistente2 == null)
+                        {
+                            Console.WriteLine("cliente errato o inesistente");
+                        }
+                        else
+                        {
                             Console.WriteLine("inserisci data di stipula polizza ");
                             var data1 = DateTime.Parse(Console.ReadLine());
                             Console.WriteLine("inserisci importo totale assicurazione ");
                             var imp1 = float.Parse(Console.ReadLine());
                             Console.WriteLine("inserisci importo rata Mensile ");
                             var rata1 = float.Parse(Console.ReadLine());
-                            
+
                             Console.WriteLine("inserisci percentuale copertura ");
                             var percentualeCopertura = int.Parse(Console.ReadLine());
 
@@ -138,20 +157,37 @@ namespace ProvaFinale_week7_LIONETTO
                                 DataStipula = data1,
                                 ImportoAssicurazione = imp1,
                                 RataMensile = rata1,
-                                PercentualeCopertura=percentualeCopertura,
+                                PercentualeCopertura = percentualeCopertura,
+                                CodiceFiscale = codiceFiscale2,
 
                             };
                             repPolizza.Create(polizzaFurto);
+                        }
+                        
 
-                            break;
-                        case '3':
+                        break;
+                    case '3':
+                        Console.WriteLine("a quale cliente vuoi aggiungere una polizza ?");
+                        var clienti3 = repCliente.GetAll();
+                        foreach (var item in clienti3)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        var codiceFiscale3 = Console.ReadLine();
+                        var clienteEsistente3 = repCliente.GetByCodiceFiscale(codiceFiscale3);
+                        if (clienteEsistente3 == null)
+                        {
+                            Console.WriteLine("cliente errato o inesistente");
+                        }
+                        else
+                        {
                             Console.WriteLine("inserisci data di stipula polizza ");
                             var data2 = DateTime.Parse(Console.ReadLine());
                             Console.WriteLine("inserisci importo totale assicurazione ");
                             var imp2 = float.Parse(Console.ReadLine());
                             Console.WriteLine("inserisci importo rata Mensile ");
                             var rata2 = float.Parse(Console.ReadLine());
-                           
+
                             Console.WriteLine("inserisci età del cliente da assicurare ");
                             var eta = int.Parse(Console.ReadLine());
 
@@ -161,24 +197,25 @@ namespace ProvaFinale_week7_LIONETTO
                                 DataStipula = data2,
                                 ImportoAssicurazione = imp2,
                                 RataMensile = rata2,
-                                AnniAssicurato=eta,
+                                AnniAssicurato = eta,
+                                CodiceFiscale = codiceFiscale3
 
                             };
                             repPolizza.Create(polizzaVita);
-                            break;
-                        case '4':
-                            exit2 = false;
-                            Console.WriteLine("fine");
-                            break ;
-                        default:
-                            Console.WriteLine("scelta non valida");
-                            break;
+                        }
+                        
+                        break;
+                    case '4':
+                        exit2 = false;
+                        Console.WriteLine("fine");
+                        break;
+                    default:
+                        Console.WriteLine("scelta non valida");
+                        break;
 
-                    }
-                }while (exit2);
-            }
+                }
+            } while (exit2);
         }
-
         private static void AddCliente()
         {
             Console.WriteLine("inserisci codice fiscale");
@@ -196,10 +233,13 @@ namespace ProvaFinale_week7_LIONETTO
                 CodiceFiscale = codFisc,
                 Nome = nome,
                 Cognome = cognome,
-                Indirizzo=indirizzo
+                Indirizzo = indirizzo
             };
             repCliente.Create(cliente);
-            
+
         }
     }
+
+    
 }
+
