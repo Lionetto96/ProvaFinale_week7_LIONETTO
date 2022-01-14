@@ -9,5 +9,6 @@ namespace ProvaFinale_week7_LIONETTO.Repository
 {
     public interface IRepositoryCliente : IRepository<Cliente>
     {
+        public Cliente? GetByCodiceFiscale(string codiceFiscale);
     }
 }

@@ -29,5 +29,10 @@ namespace ProvaFinale_week7_LIONETTO.Repository
                 return ctx.Clienti.ToList();
             }
         }
+
+        public Cliente? GetByCodiceFiscale(string codiceFiscale)
+        {
+            return GetAll().FirstOrDefault(c => c.CodiceFiscale == codiceFiscale);
+        }
     }
 }

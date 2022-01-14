@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProvaFinale_week7_LIONETTO.Repository
 {
-    public class RepositoryPolizza : IRepositoryPolizza
+    public class RepositoryEFPolizza : IRepositoryPolizza
     {
         public bool Create(Polizza item)
         {
