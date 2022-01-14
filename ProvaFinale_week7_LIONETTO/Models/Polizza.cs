@@ -9,7 +9,7 @@ namespace ProvaFinale_week7_LIONETTO.Models
     public  class Polizza
     {
         public int NumeroPolizza { get; set; }
-        public DateOnly DataStipula { get; set; }
+        public DateTime DataStipula { get; set; }
         public float ImportoAssicurazione { get; set; }
         public float RataMensile { get; set; }
 

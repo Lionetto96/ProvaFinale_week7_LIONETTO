@@ -15,9 +15,20 @@ namespace ProvaFinale_week7_LIONETTO.Models
 
         public ICollection<Polizza> Polizze { get; set; }=new List<Polizza>();
 
+        public float SpesaTotRate()
+        {
+            float totale = 0;
+            foreach (var cliente in Polizze )
+            {
+                totale +=cliente.RataMensile ;
+               
+            }
+            return totale;
+        }
+
         public override string ToString()
         {
-            return $"{CodiceFiscale} {Nome} {Cognome} {Indirizzo}";
+            return $"{CodiceFiscale} {Nome} {Cognome} {Indirizzo} {SpesaTotRate()}";
         }
     }
 }

@@ -13,6 +13,7 @@ namespace ProvaFinale_week7_LIONETTO
             builder.Property(p => p.DataStipula).IsRequired();
             builder.Property(p => p.ImportoAssicurazione).IsRequired();
             builder.Property(p => p.RataMensile).IsRequired();
+            
 
             //per gerarchia
 
